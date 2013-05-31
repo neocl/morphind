@@ -1,0 +1,56 @@
+## ==================================================================
+## Indonesian Morphological Tool (MorphInd)
+## Last Modified : May 2013
+## ==================================================================
+## Copyright (c) 2013 Septina Dian Larasati.  All rights reserved.
+
+
+Version
+================
+1.2: Initial Version
+1.3: Added disambiguation module
+1.4: Added compound word handling
+
+
+Operating System
+================
+Only run on Unix machine
+
+
+Prerequisites:
+==============
+- PERL
+- FOMA (http://code.google.com/p/foma)
+
+
+
+
+How to use:
+===========
+bash$ cat INPUTFILE | perl MorphInd.pl  > OUTPUTFILE
+bash$ echo "mengirim" | perl MorphInd.pl  > OUTPUTFILE
+bash$ cat INPUTFILE | perl MorphInd.pl [-cache-file CACHEFILE -bin-file BINARYFILE] > OUTPUTFILE
+
+Example:
+bash$ cat sample.txt | perl MorphInd.pl > sample.out
+bash$ cat sample.txt | perl MorphInd.pl -cache-file cache-files/default.cache -bin-file bin/morphind.bin > sample.out
+
+Input example  : "mengirim"
+Output example : "^meN+kirim<v>_VSA$" 
+
+
+
+Files
+=====
+= cache-files/default.cache: The cache files, that can give a direct analysis and override the FST tool output. The entries format is "[word][tab][analysis]".
+  All words partially containing number must be put in this file, e.g. "ab123".
+= cache-files/default.compound: The compound files, that can give a direct analysis and override the FST tool output. The entries format is "[compound word][tab][analysis]".
+
+
+
+
+Known Bug
+=========
+- Lemmata containing "berr" or "terr" are not analyzed properly. These lemmata has to be put in "default.cache" with its respective analysis.
+
+

@@ -1,0 +1,31 @@
+## ==================================================================
+## Indonesian Morphological Tool (MorphInd)
+## Last Modified : May 2013
+## ==================================================================
+## Copyright (c) 2013 Septina Dian Larasati.  All rights reserved.
+
+
+
+Prerequisites:
+==============
+- PERL
+- FOMA (http://code.google.com/p/foma)
+
+
+
+
+How to use:
+===========
+bash$ cat INPUTFILE | perl MorphInd.pl  > OUTPUTFILE
+bash$ echo "mengirim" | perl MorphInd.pl  > OUTPUTFILE
+bash$ cat INPUTFILE | perl MorphInd.pl [-cache-file CACHEFILE -bin-file BINARYFILE -disambiguate (0/1)] > OUTPUTFILE
+
+Example:
+bash$ cat sample.txt | perl MorphInd.pl > sample.out
+bash$ cat sample.txt | perl MorphInd.pl -cache-file cache-files/default.cache \
+     -bin-file bin/morphind.bin -disambiguate 1 > sample.out
+
+Input example  : "mengirim"
+Output example : "^meN+kirim<v>_VSA$" 
+
+
